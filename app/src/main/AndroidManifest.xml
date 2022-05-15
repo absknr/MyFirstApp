@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.myfirstapp">
 
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,22 +11,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFirstApp">
-        <activity android:name=".DisplayMessageActivity"
-            android:parentActivityName=".MainActivity" android:exported="true">
+        <activity
+            android:name=".ContentAccessorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DisplayMessageActivity"
+            android:exported="true"
+            android:parentActivityName=".MainActivity">
+
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
+
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
-                <category android:name="android.intent.category.DEFAULT"/>
-<!--                <data android:mimeType="application/*" />-->
-<!--                <data android:mimeType="audio/*" />-->
-<!--                <data android:mimeType="image/*" />-->
-<!--                <data android:mimeType="message/*" />-->
-<!--                <data android:mimeType="multipart/*" />-->
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <!-- <data android:mimeType="application/*" /> -->
+                <!-- <data android:mimeType="audio/*" /> -->
+                <!-- <data android:mimeType="image/*" /> -->
+                <!-- <data android:mimeType="message/*" /> -->
+                <!-- <data android:mimeType="multipart/*" /> -->
                 <data android:mimeType="text/plain" />
-<!--                <data android:mimeType="video/*" />-->
+                <!-- <data android:mimeType="video/*" /> -->
             </intent-filter>
         </activity>
         <activity
@@ -32,8 +42,10 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
+
 </manifest>

@@ -33,9 +33,6 @@ public class MainActivity extends AppCompatActivity {
         unregisterReceiver(airplaneModeReceiver);
     }
 
-    /**
-     * Called when the user taps the Send button
-     */
     public void sendMessage(View view) {
         EditText editText = (EditText) findViewById(R.id.editTextTextPersonName);
         String message = editText.getText().toString();
@@ -52,5 +49,9 @@ public class MainActivity extends AppCompatActivity {
         } catch (ActivityNotFoundException e) {
             // Define what your app should do if no activity can handle the intent.
         }
+    }
+
+    public void navigateToDict(View view) {
+        startActivity(new Intent(this, ContentAccessorActivity.class));
     }
 }
